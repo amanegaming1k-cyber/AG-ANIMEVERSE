@@ -4,109 +4,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080811">
-  <meta name="description" content="AG ANIMEVERSE — Discover anime, explore series and watch your favorites.">
-  <title>AG ANIMEVERSE | Anime Universe</title>
+  <meta name="theme-color" content="#101116">
+  <meta name="description" content="AG ANIMEVERSE — Discover your next anime adventure.">
+  <title>AG ANIMEVERSE</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar">
-    <a href="#" class="brand"><span>AG</span> ANIMEVERSE</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <nav id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a href="#popular">Popular</a>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-icon">AG</span><span>ANIME<span class="accent">VERSE</span></span></a>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav id="desktopNav">
+      <a class="nav-active" href="#home">Home</a>
+      <a href="#trending">Anime</a>
+      <a href="#movies">Movies</a>
+      <a href="#progress">Continue Watching</a>
     </nav>
-    <a class="header-btn" href="#explore">Explore Anime ↗</a>
+    <form class="search" id="searchForm">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    <button class="profile-btn" id="profileBtn">♙ <span>Profile</span></button>
   </header>
 
-  <main>
-    <section class="hero" id="home">
+  <main id="home">
+    <section class="hero" id="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-shade"></div>
       <div class="hero-content">
-        <p class="eyebrow">WELCOME TO YOUR ANIME UNIVERSE</p>
-        <h1>ENTER THE<br><span>ANIMEVERSE.</span></h1>
-        <p class="hero-description">
-          Discover unforgettable stories, legendary characters,
-          and your next favorite anime—all in one place.
+        <div class="hero-kicker"><span class="live-dot"></span> AG ANIMEVERSE ORIGINAL COLLECTION</div>
+        <p class="hero-label">FEATURED ANIME</p>
+        <h1 id="heroTitle">YOUR NEXT<br><span>ANIME WORLD</span></h1>
+        <div class="hero-meta">
+          <span class="rating">★ 9.2</span><span>Anime</span><span>Adventure</span><span>HD UI Preview</span>
+        </div>
+        <p class="hero-description" id="heroDescription">
+          Discover extraordinary worlds, unforgettable characters and stories that stay with you.
         </p>
-        <div class="hero-actions">
-          <a class="primary-btn" href="#explore">Explore Anime <span>→</span></a>
-          <a class="secondary-btn" href="#popular">Discover More</a>
+        <div class="hero-buttons">
+          <button class="btn-primary" id="heroExplore">▶ Explore Anime</button>
+          <button class="btn-glass" id="heroInfo">ⓘ More Info</button>
         </div>
-        <div class="hero-note"><span class="live-dot"></span> YOUR NEXT ADVENTURE STARTS HERE</div>
+        <div class="hero-dots" id="heroDots">
+          <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
       </div>
-      <div class="hero-art" aria-label="Anime-inspired decorative artwork">
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-        <div class="art-ring"></div>
-        <div class="art-symbol">影</div>
-        <div class="art-label">ANIME<br>UNIVERSE</div>
-      </div>
+      <div class="hero-side-label">A G / ANIMEVERSE</div>
     </section>
 
-    <section class="stats">
-      <div><strong>∞</strong><span>Stories to Discover</span></div>
-      <div><strong>01</strong><span>Your Anime Destination</span></div>
-      <div><strong>AG</strong><span>Animeverse Community</span></div>
+    <section class="quick-categories">
+      <button class="category-tile selected" data-category="All"><span>✦</span> All</button>
+      <button class="category-tile" data-category="Action"><span>⚔</span> Action</button>
+      <button class="category-tile" data-category="Romance"><span>♡</span> Romance</button>
+      <button class="category-tile" data-category="Fantasy"><span>✧</span> Fantasy</button>
+      <button class="category-tile" data-category="Adventure"><span>➤</span> Adventure</button>
+      <button class="category-tile" data-category="Drama"><span>◈</span> Drama</button>
     </section>
 
-    <section class="section" id="explore">
+    <section class="content-section" id="trending">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">FIND YOUR NEXT FAVORITE</p>
-          <h2>Explore <span>Anime</span></h2>
-        </div>
-        <label class="search-box">
-          <span>⌕</span>
-          <input id="searchInput" type="search" placeholder="Search anime..." aria-label="Search anime">
-        </label>
+        <div><p class="section-kicker">POPULAR RIGHT NOW</p><h2>Trending <span>Now</span> 🔥</h2></div>
+        <button class="text-link" data-show-all>View all <span>›</span></button>
       </div>
-
-      <div class="filters" id="filters">
-        <button class="filter active" data-category="All">All Anime</button>
-        <button class="filter" data-category="Action">Action</button>
-        <button class="filter" data-category="Romance">Romance</button>
-        <button class="filter" data-category="Fantasy">Fantasy</button>
-        <button class="filter" data-category="Adventure">Adventure</button>
-      </div>
-
-      <div class="anime-grid" id="animeGrid"></div>
-      <p class="empty-state" id="emptyState" hidden>No anime found. Try another search.</p>
+      <div class="poster-row" id="trendingRow"></div>
     </section>
 
-    <section class="spotlight" id="popular">
-      <div>
-        <p class="eyebrow">YOUR UNIVERSE. YOUR CHOICE.</p>
-        <h2>Every story opens<br>a <span>new world.</span></h2>
-        <p>Explore anime details and use authorized video links to watch your favorites.</p>
-        <a href="#explore" class="primary-btn">Browse Collection →</a>
+    <section class="content-section" id="progress">
+      <div class="section-heading">
+        <div><p class="section-kicker">PICK UP WHERE YOU LEFT OFF</p><h2>Anime in <span>Progress</span> ✈</h2></div>
+        <button class="text-link" data-show-all>View all <span>›</span></button>
       </div>
-      <div class="spotlight-mark">AG<span>✦</span></div>
+      <div class="poster-row" id="progressRow"></div>
+    </section>
+
+    <section class="content-section" id="movies">
+      <div class="section-heading">
+        <div><p class="section-kicker">BIG STORIES, BIG WORLDS</p><h2>Anime <span>Movies</span> 🎬</h2></div>
+        <button class="text-link" data-show-all>View all <span>›</span></button>
+      </div>
+      <div class="poster-row" id="moviesRow"></div>
+    </section>
+
+    <section class="content-section search-results-section" id="searchResultsSection" hidden>
+      <div class="section-heading">
+        <div><p class="section-kicker">YOUR SEARCH</p><h2>Search <span>Results</span></h2></div>
+      </div>
+      <div class="poster-grid" id="searchResults"></div>
+      <p id="noResults" class="empty-state" hidden>No anime found. Try another title.</p>
+    </section>
+
+    <section class="join-banner">
+      <div class="join-symbol">AG<span>✦</span></div>
+      <div><p class="section-kicker">WELCOME TO THE UNIVERSE</p><h2>Your next obsession<br>is just one <span>click away.</span></h2></div>
+      <button class="btn-primary" id="browseBtn">Browse Anime →</button>
     </section>
   </main>
 
   <footer>
-    <a href="#home" class="brand"><span>AG</span> ANIMEVERSE</a>
+    <a class="brand" href="#home"><span class="brand-icon">AG</span><span>ANIME<span class="accent">VERSE</span></span></a>
     <p>Explore stories. Discover worlds.</p>
-    <p class="copyright">© <span id="year"></span> AG ANIMEVERSE. All rights reserved.</p>
+    <span>© <span id="year"></span> AG ANIMEVERSE</span>
   </footer>
 
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a class="mobile-active" href="#home"><span>⌂</span>Home</a>
+    <a href="#trending"><span>▤</span>Anime</a>
+    <a href="#movies"><span>▷</span>Movies</a>
+    <button id="mobileSearch"><span>⌕</span>Search</button>
+    <button id="mobileProfile"><span>♙</span>Profile</button>
+  </nav>
+
   <div class="modal" id="animeModal" aria-hidden="true">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-backdrop" id="modalBackdrop" aria-label="Close details"></button>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <div class="modal-poster" id="modalPoster"></div>
-      <div class="modal-info">
-        <p class="eyebrow" id="modalCategory">ANIME DETAILS</p>
-        <h2 id="modalTitle">Anime Title</h2>
+      <div class="modal-art" id="modalArt"><span id="modalSymbol">影</span></div>
+      <div class="modal-body">
+        <p class="section-kicker" id="modalCategory">ANIME DETAILS</p>
+        <h2 id="modalTitle">Anime title</h2>
+        <div class="hero-meta" id="modalMeta"></div>
         <p id="modalDescription"></p>
-        <p class="modal-hint" id="modalHint"></p>
-        <a id="watchLink" class="primary-btn" href="#" target="_blank" rel="noopener noreferrer" hidden>Watch Anime ↗</a>
+        <div id="playerBox" class="player-box" hidden>
+          <video id="videoPlayer" controls playsinline preload="metadata"></video>
+        </div>
+        <p class="player-note" id="playerNote"></p>
+        <button class="btn-primary" id="playBtn">▶ Play Video</button>
       </div>
-    </div>
+    </article>
   </div>
 
+  <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
 </body>
 </html>
